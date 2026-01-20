@@ -1,5 +1,5 @@
 # Define the base image for Python environment
-ARG PYTHON_BASE=python:3.9-slim
+ARG PYTHON_BASE=python:3.13-slim
 
 # Define the working directory
 ARG WORKDIR="/app"

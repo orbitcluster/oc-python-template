@@ -1,0 +1,24 @@
+---
+name: app-ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
+  packages: write
+
+jobs:
+  build-deploy:
+    uses: orbitcluster/oc-cicd-python-workflow@v1
+    secrets: inherit
+    with:
+      test-directory: "test"
