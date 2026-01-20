@@ -18,7 +18,8 @@ permissions:
 
 jobs:
   build-deploy:
-    uses: orbitcluster/oc-cicd-python-workflow@v1
-    secrets: inherit
-    with:
-      test-directory: "test"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: orbitcluster/oc-cicd-python-workflow@v1
+        with:
+          test-directory: "test"
