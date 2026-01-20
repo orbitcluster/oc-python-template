@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PYTHON_BASE: python:3.13-slim
+        WORKDIR: /app
+        SRC_PATH: src
+        MAIN_EXECUTABLE: src/api/server.py
+        CONTAINER_PORT: 5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./src:/app/src
+    environment:
+      - PORT=5000
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
