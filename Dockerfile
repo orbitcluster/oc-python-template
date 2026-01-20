@@ -19,7 +19,7 @@ WORKDIR /build
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir --no-compile -r requirements.txt
 
 # Final stage
 FROM ${PYTHON_BASE}
@@ -36,7 +36,8 @@ ENV WORKDIR=${WORKDIR} \
     CONTAINER_PORT=${CONTAINER_PORT} \
     PORT=${CONTAINER_PORT} \
     MAIN_EXECUTABLE=${MAIN_EXECUTABLE} \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
 
 # Install system dependencies and security updates
 RUN apt-get update \
@@ -56,10 +57,8 @@ COPY --from=builder /usr/local /usr/local
 
 # Copy application code
 COPY --chown=appuser:appgroup ${SRC_PATH}/ ./${SRC_PATH}/
-COPY --chown=appuser:appgroup test/ ./test
-
-
-EXPOSE ${CONTAINER_PORT}
 
 USER appuser
-CMD python ${MAIN_EXECUTABLE}
+
+EXPOSE ${CONTAINER_PORT}
+CMD exec python ${MAIN_EXECUTABLE}
