@@ -70,3 +70,75 @@ def calculate_expression(expression: str) -> float:
     """Vulnerable to code injection via eval."""
     # BAD: eval() on user input can execute arbitrary code
     return eval(expression)
+
+
+# ============================================
+# BUGS - These will be flagged as actual bugs
+# ============================================
+
+# BUG 1: Division by zero
+def divide_numbers(a: int, b: int) -> float:
+    """Contains potential division by zero."""
+    divisor = 0
+    return a / divisor  # BUG: Always divides by zero
+
+
+# BUG 2: Unreachable code
+def unreachable_code_example() -> str:
+    """Contains unreachable code."""
+    return "Hello"
+    print("This will never execute")  # BUG: Unreachable code
+    return "World"
+
+
+# BUG 3: Constant condition (always true/false)
+def constant_condition() -> str:
+    """Contains constant condition that's always true."""
+    x = 5
+    if x == 5:  # BUG: Condition is always true
+        return "Always"
+    else:
+        return "Never"  # BUG: Dead code
+
+
+# BUG 4: Unused variable
+def unused_variable_example() -> int:
+    """Contains unused variables."""
+    unused_var = "This is never used"  # BUG: Unused variable
+    result = 42
+    return result
+
+
+# BUG 5: Identical branch conditions
+def identical_branches(value: int) -> str:
+    """Contains identical conditions in if/elif."""
+    if value > 10:
+        return "Greater"
+    elif value > 10:  # BUG: Duplicate condition
+        return "Also greater"
+    else:
+        return "Less or equal"
+
+
+# BUG 6: Self-assignment
+def self_assignment_bug() -> dict:
+    """Contains self-assignment."""
+    data = {"key": "value"}
+    data = data  # BUG: Self-assignment has no effect
+    return data
+
+
+# BUG 7: Comparison with itself
+def self_comparison(x: int) -> bool:
+    """Contains comparison with itself."""
+    return x == x  # BUG: Always true, comparing to itself
+
+
+# BUG 8: Empty except clause
+def empty_except_handler() -> None:
+    """Contains empty except clause that silences errors."""
+    try:
+        risky_operation = 1 / 0
+    except:  # BUG: Bare except catches everything including SystemExit
+        pass  # BUG: Silently ignoring exception
+
