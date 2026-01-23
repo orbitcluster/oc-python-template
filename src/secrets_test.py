@@ -3,24 +3,28 @@ Configuration file with secrets for testing Talisman detection.
 WARNING: These are INTENTIONAL test secrets for CI/CD testing.
 """
 
-# AWS Credentials - Dummy pattern for testing
-AWS_ACCESS_KEY_ID = "AKIADUMMYTESTKEY1234"
-AWS_SECRET_ACCESS_KEY = "DummySecretKeyForTesting1234567890EXAMPLE"
+# AWS Credentials - Using AKIA prefix pattern that Talisman detects
+AWS_ACCESS_KEY = "AKIA1234567890ABCDEF"
+AWS_SECRET_KEY = "abcdefghijklmnopqrstuvwxyz1234567890ABCD"
 
-# API Token pattern
-API_TOKEN = "token_abc123def456ghi789jkl012mno345"
+# High entropy string that should trigger detection
+HIGH_ENTROPY_SECRET = "Rz4Kp9Wq2XmL8YvB3NcT6UfA1DgH7JsE0IwO5PxC"
 
-# Generic API Key
-API_KEY = "supersecretapikey_1234567890abcdef"
+# Private key format that Talisman detects
+SSH_PRIVATE_KEY = """-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdz
+-----END OPENSSH PRIVATE KEY-----"""
 
-# Private Key placeholder (not real format to avoid GitHub detection)
-PRIVATE_KEY_DATA = "PRIVATE-KEY-CONTENT-PLACEHOLDER-DO-NOT-USE"
+# RSA Private key format
+RSA_PRIVATE_KEY = """-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEA0Z3VS5JJcds3xfn/ygWyF8PbnGy0AHB7MxszR7TESTKEYx
+-----END RSA PRIVATE KEY-----"""
 
-# Database credentials
-DB_PASSWORD = "MyDatabasePassword123!"
-ADMIN_PASSWORD = "AdminP@ssw0rd_ForTesting"
+# Password variables
+password = "VerySecretPassword123!"
+secret_key = "mysupersecretekey_abcdef1234567890"
 
-# Generic secrets
-SECRET_VALUE = "this_is_a_secret_value_for_testing_12345"
-ENCRYPTION_KEY = "aes256_encryption_key_0123456789abcdef"
+# Auth token with bearer pattern
+auth_token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
+
 
