@@ -3,9 +3,7 @@ name: app-ci
 
 on:
   push:
-    branches: [main]
   pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -20,6 +18,9 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: orbitcluster/oc-cicd-python-workflow@v1
+      - uses: orbitcluster/oc-cicd-python-workflow@feat/add-sonar-password
         with:
           test-directory: "test"
+          sonar-source-path: "src"
+          sonar-password: ${{ secrets.SONAR_PASSWORD }}
+
