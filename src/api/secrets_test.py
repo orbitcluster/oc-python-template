@@ -22,7 +22,7 @@ MIIEowIBAAKCAQEA0Z3VS5JJcds3xfn/ygWyF8PbnGy0AHB7MxszR7TESTKEYx
 
 # Password variables
 password = "VerySecretPassword123!"
-secret_key = "mysupersecretekey_abcdef1234567890"
+secret_key = "mysupersecretekey_abcdef1634567890"
 
 # Auth token with bearer pattern
 auth_token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
