@@ -2,6 +2,6 @@ database:
   host: "localhost"
   port: 5432
   user: "admin"
-  password: "ghp_x7z9#K2$mP5v@L8qR1!wN4jB7"
+  password: "ghp_x7z9#K2$mP5v@L8qR1!wN4jB8"
 app:
   debug: true
