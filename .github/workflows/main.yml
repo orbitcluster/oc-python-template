@@ -22,5 +22,4 @@ jobs:
         with:
           test-directory: "test"
           sonar-source-path: "src"
-          sonar-password: ${{ secrets.SONAR_PASSWORD }}
 
