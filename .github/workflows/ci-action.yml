@@ -20,7 +20,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: orbitcluster/oc-cicd-python-workflow@feat/addsastscan
+      - uses: orbitcluster/oc-cicd-python-workflow@v1
         with:
           test-directory: "test"
           app-name: "oc-python-test"
