@@ -19,6 +19,6 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: orbitcluster/oc-cicd-python-workflow@dk/fixworkflow
+      - uses: orbitcluster/oc-cicd-python-workflow@v1
         with:
           test-directory: "test"
