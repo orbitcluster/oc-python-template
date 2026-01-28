@@ -25,6 +25,6 @@ jobs:
           test-directory: "test"
           app-name: "oc-python-test2"
           appid: "1"
-          orgid: "101"
+          orgid: "103"
           buid: "1002"
           role-to-assume: ${{ secrets.OC_ROLE_TO_ASSUME }}
