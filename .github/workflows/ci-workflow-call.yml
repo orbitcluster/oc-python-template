@@ -25,4 +25,5 @@ jobs:
       appid: "1"
       orgid: "101"
       buid: "1002"
+    secrets:
       role-to-assume: ${{ secrets.OC_ROLE_TO_ASSUME }}
