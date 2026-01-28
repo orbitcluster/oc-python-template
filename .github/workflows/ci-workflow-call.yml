@@ -21,7 +21,7 @@ jobs:
     uses: orbitcluster/oc-cicd-python-workflow/.github/workflows/all-ci.yml@feat/push_init
     with:
       test-directory: "test"
-      app-name: "oc-python-test"
+      app-name: "oc-python-test1"
       appid: "1"
       orgid: "101"
       buid: "1002"
