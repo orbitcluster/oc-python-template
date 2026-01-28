@@ -23,7 +23,8 @@ jobs:
       - uses: orbitcluster/oc-cicd-python-workflow@v1
         with:
           test-directory: "test"
-          app-name: "oc-python-test"
+          app-name: "oc-python-test2"
           appid: "1"
-          orgid: "101"
-          buid: "1001"
+          orgid: "103"
+          buid: "1002"
+          role-to-assume: ${{ secrets.OC_ROLE_TO_ASSUME }}

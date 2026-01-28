@@ -21,7 +21,9 @@ jobs:
     uses: orbitcluster/oc-cicd-python-workflow/.github/workflows/all-ci.yml@v1
     with:
       test-directory: "test"
-      app-name: "oc-python-test"
+      app-name: "oc-python-test1"
       appid: "1"
-      orgid: "101"
-      buid: "1001"
+      orgid: "104"
+      buid: "1002"
+    secrets:
+      role-to-assume: ${{ secrets.OC_ROLE_TO_ASSUME }}
