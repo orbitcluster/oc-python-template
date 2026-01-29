@@ -1,10 +1,10 @@
----
 name: app-action-ci
 
 on:
   push:
+    branches: ['main']
   pull_request:
-    branches: [main]
+    branches: ['main']
   workflow_dispatch:
 
 permissions:
@@ -23,7 +23,7 @@ jobs:
       - uses: orbitcluster/oc-cicd-python-workflow@v1
         with:
           test-directory: "test"
-          app-name: "oc-python-test2"
+          app-name: "oc-python-template" # Use consistent name
           appid: "1"
           orgid: "103"
           buid: "1002"
