@@ -3,6 +3,7 @@ name: app-workflow-ci
 
 on:
   push:
+    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -18,7 +19,7 @@ permissions:
 
 jobs:
   build-deploy:
-    uses: orbitcluster/oc-cicd-python-workflow/.github/workflows/all-ci.yml@fix/update_docker_logic
+    uses: orbitcluster/oc-cicd-python-workflow/.github/workflows/all-ci.yml@v1
     with:
       test-directory: "test"
       app-name: "oc-python-test1"

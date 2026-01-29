@@ -2,7 +2,7 @@ name: app-action-ci
 
 on:
   push:
-    # branches: ['main']
+    branches: ['main']
   pull_request:
     branches: ['main']
   workflow_dispatch:
@@ -20,7 +20,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: orbitcluster/oc-cicd-python-workflow@fix/update_docker_logic
+      - uses: orbitcluster/oc-cicd-python-workflow@v1
         with:
           test-directory: "test"
           app-name: "oc-python-template" # Use consistent name
