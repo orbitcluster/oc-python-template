@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
   pull_request:
+    types: [opened, synchronize, closed]
     branches: [main]
   workflow_dispatch:
 
@@ -22,7 +23,7 @@ jobs:
     uses: orbitcluster/oc-cicd-python-workflow/.github/workflows/all-ci.yml@v1
     with:
       test-directory: "test"
-      app-name: "oc-python-test1"
+      app-name: "${{ github.event.repository.name }}"
       appid: "1"
       orgid: "104"
       buid: "1002"
