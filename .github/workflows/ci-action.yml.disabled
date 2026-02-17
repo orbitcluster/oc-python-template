@@ -23,7 +23,7 @@ jobs:
       - uses: orbitcluster/oc-cicd-python-workflow@v1
         with:
           test-directory: "test"
-          app-name: "oc-python-template" # Use consistent name
+          app-name: "${{ github.event.repository.name }}" # Use consistent name
           appid: "1"
           orgid: "103"
           buid: "1002"
