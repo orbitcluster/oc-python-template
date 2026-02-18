@@ -1,0 +1,9 @@
+apiVersion: v2
+name: oc-python-template
+description: Chart for python template application
+type: application
+version: 0.1.0
+dependencies:
+  - name: k8s-service
+    version: "*"
+    repository: oci://485646919618.dkr.ecr.us-east-1.amazonaws.com/platform
