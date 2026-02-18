@@ -1,0 +1,16 @@
+# Values for dev environment
+# Configured for ArgoCD Image Updater integration as defined in appset-dev-pr.yaml
+
+# These annotations are applied by ArgoCD ApplicationSet to the Application resource,
+# but can be mirrored here for reference or future direct use.
+# They instruct the image updater to track the image and update the deployment strategy.
+
+# argocd-image-updater.argoproj.io/image-list: app=~
+# argocd-image-updater.argoproj.io/app.update-strategy: latest
+# argocd-image-updater.argoproj.io/app.allow-tags: regexp:^[0-9]+\.[0-9]+\.[0-9]+-.*$
+# argocd-image-updater.argoproj.io/write-back-method: git
+
+containerImage:
+  repository: 485646919618.dkr.ecr.us-east-1.amazonaws.com/104-1002-1/fastnew
+  tag: latest
+  pullPolicy: Always
