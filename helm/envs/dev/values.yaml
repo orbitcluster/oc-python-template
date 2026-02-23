@@ -10,7 +10,11 @@
 # argocd-image-updater.argoproj.io/app.allow-tags: regexp:^[0-9]+\.[0-9]+\.[0-9]+-.*$
 # argocd-image-updater.argoproj.io/write-back-method: git
 
-containerImage:
-  repository: 485646919618.dkr.ecr.us-east-1.amazonaws.com/104-1002-1/fastnew
-  tag: latest
-  pullPolicy: Always
+k8s-service:
+  containerImage:
+    repository: 485646919618.dkr.ecr.us-east-1.amazonaws.com/104-1002-1/oc-python-template
+    tag: latest
+    pullPolicy: Always
+
+  imagePullSecrets:
+    - name: hub-ecr-docker-secret

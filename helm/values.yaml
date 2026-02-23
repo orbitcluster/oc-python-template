@@ -1,0 +1,11 @@
+# Default values for oc-python-template.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Empty by default, use envs/<env>/values.yaml for specific configurations.
+
+global:
+  applicationName: oc-python-template
+
+k8s-service:
+  applicationName: oc-python-template
