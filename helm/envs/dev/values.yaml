@@ -12,8 +12,12 @@
 
 k8s-service:
   containerImage:
-    # This value is dynamically overwritten by ArgoCD ApplicationSets
-    # based on the GitHub repo name, so we don't need a real URL here!
+    # Organizational mapping prefixes. The repository name is dynamically
+    # injected by ArgoCD ApplicationSets (passing the github repo name)
+    registry: 485646919618.dkr.ecr.us-east-1.amazonaws.com
+    orgId: "104"
+    buId: "1002"
+    appId: "1"
     repository: ""
     tag: latest
     pullPolicy: Always
