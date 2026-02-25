@@ -4,6 +4,7 @@
   "buId": "1002",
   "appId": "1",
   "_copy_without_render": [
-    "{{cookiecutter.applicationName}}/.github/workflows/*"
+    "*github/workflows/*",
+    "*/.github/workflows/*"
   ]
 }
