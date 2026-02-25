@@ -12,7 +12,6 @@
 
 k8s-service:
   containerImage:
-    repository: 485646919618.dkr.ecr.us-east-1.amazonaws.com/104-1002-1/oc-python-template
     tag: latest
     pullPolicy: Always
 
