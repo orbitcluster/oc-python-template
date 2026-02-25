@@ -1,132 +1,54 @@
-# Python Boilerplate
+# oc-python-template
 
-[![Use this template](https://img.shields.io/badge/Use%20this%20template-238636?style=for-the-badge&logo=github)](https://github.com/new?template_name=oc-python-template&template_owner=orbitcluster)
+This is a Cookiecutter template for generating new Python applications within Orbit Cluster. It sets up a production-ready Python project with Docker, CI/CD, Helm charts, and best practices baked in.
 
-A production-ready Python boilerplate designed to be used as a GitHub Template. It comes pre-configured with Docker support, CI/CD pipelines, and best practices for modern Python development.
+## 🚀 Prerequisites
 
-## 🚀 Features
-
-- **Dockerized**: Optimized Dockerfile with multi-stage builds, non-root user, and signal handling.
-- **CI/CD Ready**:
-  - `pre-commit` workflow for code quality checks.
-  - Semantic Versioning automation.
-  - Reusable workflow integration.
-- **Best Practices**:
-  - `.dockerignore` and `.gitignore` configured.
-  - `.python-version` for consistent environment setup.
-  - Security focused (non-root container user).
-
-## 🛠️ Getting Started
-
-To use this template for your own project:
-
-1.  Click the **[Use this template](https://github.com/new?template_name=oc-python-template&template_owner=orbitcluster)** button at the top of the repository.
-2.  Create a new repository from this template.
-3.  Clone your new repository locally:
-    ```bash
-    git clone https://github.com/your-username/your-new-repo.git
-    cd your-new-repo
-    ```
-
-## 📦 Prerequisites
-
-- **Python 3.13+** (Managed via `.python-version`)
-- **Docker** (for containerized development)
-
-## 💻 Local Development
-
-1.  **Create a Virtual Environment**:
-
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
-    ```
-
-2.  **Install Dependencies**:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **Run the Application**:
-
-    ```bash
-    # Adjust the path if your entry point differs
-    python src/api/server.py
-    ```
-
-4.  **Run Tests**:
-    ```bash
-    python -m unittest discover test
-    ```
-
-## 🐳 Docker Support
-
-This project includes a production-grade `Dockerfile`.
-
-### Build the Image
+To use this template, you'll need to have `cookiecutter` installed. If you don't have it installed, you can do so via `pip` or `brew`:
 
 ```bash
-docker build -t my-python-app .
+# Using pip
+pip install cookiecutter
+
+# Using Homebrew (macOS)
+brew install cookiecutter
 ```
 
-### Run the Container
+## 🛠️ Usage
+
+Use the `cookiecutter` command pointing to this repository to scaffold a new project.
 
 ```bash
-docker run -p 5000:5000 --rm my-python-app
+# From a local clone of this template:
+cookiecutter path/to/oc-python-template
+
+# Or directly from the GitHub repository:
+cookiecutter https://github.com/orbitcluster/oc-python-template
 ```
 
-### Optimizations Included
+### Configuration Prompts
 
-- **`.dockerignore`**: Excludes `venv`, `.git`, and `__pycache__` for smaller builds.
-- **Multi-stage Build**: Keeps the final image minimal.
-- **Security**: Runs as a non-root user (`appuser`).
-- **Signal Handling**: Uses `exec` to ensure graceful shutdowns.
-- **Caching**: `pip` runs with `--no-cache-dir` and `--no-compile` to reduce size.
+You will be prompted to provide values for the following variables:
 
-## 🐙 Docker Compose
+- **`applicationName`**: The name of your new application (e.g., `my-awesome-api`). This will be used as the root directory name and will populate placeholders in Helm configurations.
+- **`orgId`**: Your Organization ID (default: `104`).
+- **`buId`**: Your Business Unit ID (default: `1002`).
+- **`appId`**: The specific Application ID for this new project (default: `1`).
 
-For a simplified local development experience, use `docker compose`:
+### What Gets Generated?
 
-1.  **Build and Run**:
+Once generated, your new project directory (named after your `applicationName`) will contain:
 
-    ```bash
-    docker compose up --build
-    ```
+- A fully structured Python application (`src/`, `test/`)
+- A production-grade `Dockerfile` & `docker-compose.yml`
+- Helm charts configured with your provided `orgId`, `buId`, `appId`, and `applicationName`.
+- GitHub Action CI/CD workflows for versioning and validation.
+- An application-specific `README.md` with instructions on how to run your new service locally.
 
-2.  **Run in Background**:
+## Development
 
-    ```bash
-    docker compose up -d
-    ```
+If you're updating _this template_ itself:
 
-3.  **Stop Containers**:
-    ```bash
-    docker compose down
-    ```
-
-The service is mapped to port `5000` and mounts the `./src` directory for easier development.
-
-## 🔄 CI/CD Workflows
-
-Found in `.github/workflows/`:
-
-- **`pre-commit.yml`**: Runs on Pull Requests to `main`. It sets up Python 3.13 and runs pre-commit checks.
-- **`version.yml`**: Automates semantic versioning on push to `main`.
-- **`main.yml`** (disabled): Example of a deployment workflow using reusable actions.
-
-## 📂 Project Structure
-
-```text
-.
-├── .github/            # GitHub Actions workflows
-├── src/                # Source code
-│   └── api/            # API endpoints (server.py)
-├── test/               # Unit tests
-├── .dockerignore       # Docker build exclusions
-├── .gitignore          # Git exclusions
-├── .python-version     # Python version definition (3.13)
-├── Dockerfile          # Container definition
-├── README.md           # Project documentation
-└── requirements.txt    # Python dependencies
-```
+1. Make your changes inside the `{{cookiecutter.applicationName}}` directory.
+2. If you need to add more configurable parameters, add them to `cookiecutter.json`.
+3. Reference those new parameters in your files using Jinja2 syntax: `{{ cookiecutter.myNewVariable }}`.

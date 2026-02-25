@@ -5,15 +5,15 @@
 # Empty by default, use envs/<env>/values.yaml for specific configurations.
 
 global:
-  applicationName: oc-python-template
+  applicationName: { { cookiecutter.applicationName } }
 
 k8s-service:
-  applicationName: oc-python-template
+  applicationName: { { cookiecutter.applicationName } }
   containerImage:
     # Organizational mapping prefixes. The repository name is dynamically
     # injected by ArgoCD ApplicationSets (passing the github repo name)
     registry: 485646919618.dkr.ecr.us-east-1.amazonaws.com
-    orgId: "104"
-    buId: "1002"
-    appId: "1"
+    orgId: "{{ cookiecutter.orgId }}"
+    buId: "{{ cookiecutter.buId }}"
+    appId: "{{ cookiecutter.appId }}"
     repository: ""
